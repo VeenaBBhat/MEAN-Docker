@@ -1,0 +1,73 @@
+<div class="container">
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">
+    Welcome to {{ title }}!
+  </a>
+</nav>
+<br/>
+<div class="card">
+  <h5 class="card-header">Search By Title</h5>
+  <div class="card-body">
+    <h5 class="card-title">Enter atleast 3 letters to fetch matching movie names</h5>
+    <p class="card-text">
+			<input list="movies" name="movie" (keyup)="getList(keyName.value);" #keyName placeholder="Movie title here">
+			  <datalist id="movies">
+				<option *ngFor="let mvList of movieList" value={{mvList.title}}>
+			  </datalist>
+			&nbsp;&nbsp;
+	</p>
+	<table class="table">
+  <thead *ngIf="movieList.length>0">
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mvList of movieList">
+      <td>{{mvList.imdbid}}</td>
+      <td>{{mvList.title}}</td>
+      <td>{{mvList.year}}</td>
+      <td>{{mvList.type}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+ </div>		
+<hr/>
+<div class="card">
+  <h5 class="card-header">Search By Id</h5>
+  <div class="card-body">
+    <h5 class="card-title">Enter the movie id</h5>
+    <p class="card-text">
+			<input tyep="text" #movieId>
+			&nbsp;&nbsp;
+			<button id="search-by-id-button" type="button" class="btn btn-primary" (click)="getMovie(movieId.value);">Search</button>
+	</p>
+
+	<table class="table" *ngIf="myMovie">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{myMovie.imdbid}}</td>
+      <td>{{myMovie.title}}</td>
+      <td>{{myMovie.year}}</td>
+      <td>{{myMovie.type}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+ </div>	
+ 
+</div>
+<hr/>
+<router-outlet></router-outlet>
