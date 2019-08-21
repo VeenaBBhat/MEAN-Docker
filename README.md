@@ -1,7 +1,7 @@
 # Movie Database App using Angular and Node-Express
 This project is about taking a online movie database instance using Node-Express application and querying the database through the UI created using Angular. The Angular interface created provides mechanism to search a movie by name and by id and displays the details accordingly. While there are many online movie databases available, this project uses http://www.omdbapi.com
 
-##List of installed softwares
+## List of installed softwares
 1. Node
 2. Express
 3. Angular-cli
